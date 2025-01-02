@@ -67,6 +67,12 @@
       "./image6.gif",
       "./image7.gif"
     ];
+
+      // Adiciona música de fundo
+  const audio = new Audio('./avua.m4a'); // Caminho para o arquivo de música
+  audio.loop = true; // Faz a música tocar em loop
+  audio.volume = 0.5; // Ajusta o volume
+  audio.play(); // Toca a música
   
     noButton.addEventListener('click', function() {
       if (noClickCount < 5) {
@@ -99,12 +105,6 @@ yesButton.addEventListener('click', () => {
   messageLink.style.textDecoration = "none";
   messageLink.style.marginTop = "20px";
   document.body.appendChild(messageLink); // Adiciona o link ao final da página
-
-  // Adiciona música de fundo
-  const audio = new Audio('./avua.m4a'); // Caminho para o arquivo de música
-  audio.loop = true; // Faz a música tocar em loop
-  audio.volume = 0.5; // Ajusta o volume
-  audio.play(); // Toca a música
 
   confetti(); // Dispara a animação de confete
 });
