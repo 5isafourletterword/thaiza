@@ -32,7 +32,7 @@
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Estou com saudades, vamos nos ver?!</h2>
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Oie, Thaiza, estou com saudades, vamos nos ver?!</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
@@ -72,9 +72,9 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
-        buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
+        buttonHeight += 17; // Increase height by 5px on each click
+        buttonWidth += 17;
+        fontSize += 12; // Increase font size by 1px on each click
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
@@ -84,12 +84,30 @@
       }
     });
   
-    yesButton.addEventListener('click', () => {
-      imageDisplay.src = './image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Ebaaaaaaaaa!! :3"; // Change the question text
-      responseButtons.style.display = 'none'; // Hide both buttons
-      confetti(); // Trigger confetti animation
-    });
+yesButton.addEventListener('click', () => {
+  imageDisplay.src = './image7.gif'; // Troca para image7.gif
+  valentineQuestion.textContent = "Ebaaaaaaaaa!!! :3"; // Altera o texto da pergunta
+  responseButtons.style.display = 'none'; // Esconde os botões
+
+  // Adiciona o link para o WhatsApp
+  const messageLink = document.createElement('a');
+  messageLink.href = "https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs";
+  messageLink.target = "_blank"; // Abre em uma nova aba
+  messageLink.innerText = "Clique aqui para me chamar no WhatsApp! rs 💬";
+  messageLink.style.fontSize = "18px";
+  messageLink.style.color = "#00BFA5";
+  messageLink.style.textDecoration = "none";
+  messageLink.style.marginTop = "20px";
+  document.body.appendChild(messageLink); // Adiciona o link ao final da página
+
+  // Adiciona música de fundo
+  const audio = new Audio('./avua.m4a'); // Caminho para o arquivo de música
+  audio.loop = true; // Faz a música tocar em loop
+  audio.volume = 0.5; // Ajusta o volume
+  audio.play(); // Toca a música
+
+  confetti(); // Dispara a animação de confete
+});
     
   </script>  
 </body>
