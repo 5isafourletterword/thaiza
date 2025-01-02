@@ -43,6 +43,14 @@
           Não
         </button>
       </div>
+      <div id="finalMessage" class="hidden flex flex-col items-center text-center mt-6">
+        <h2 class="text-4xl font-bold italic text-[#bd1e59] my-4">Ebaaaaaaaaa!!! :3</h2>
+        <a href="https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs" 
+           target="_blank"
+           class="text-lg font-medium text-[#00BFA5] underline mt-2">
+          Chama no whats! rs 💬
+        </a>
+      </div>
     </div>
   </div>
 
@@ -53,6 +61,7 @@
     const imageDisplay = document.getElementById('imageDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
+    const finalMessage = document.getElementById('finalMessage');
   
     let noClickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
@@ -77,9 +86,9 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 8;
-        buttonWidth += 8;
-        fontSize += 6;
+        buttonHeight += 17;
+        buttonWidth += 17;
+        fontSize += 12;
         yesButton.style.height = `${buttonHeight}px`;
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`;
@@ -92,18 +101,9 @@
     yesButton.addEventListener('click', () => {
       if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
       imageDisplay.src = './image7.gif';
-      valentineQuestion.textContent = "Ebaaaaaaaaa!!! :3";
+      valentineQuestion.style.display = 'none';
       responseButtons.style.display = 'none';
-
-      const messageLink = document.createElement('a');
-      messageLink.href = "https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs";
-      messageLink.target = "_blank";
-      messageLink.innerText = "Manda a localização no whats! rs 💬";
-      messageLink.style.fontSize = "18px";
-      messageLink.style.color = "#00BFA5";
-      messageLink.style.textDecoration = "none";
-      messageLink.style.marginTop = "20px";
-      document.body.appendChild(messageLink);
+      finalMessage.classList.remove('hidden');
 
       confetti(); // Dispara a animação de confete
     });
