@@ -92,20 +92,40 @@
   
 yesButton.addEventListener('click', () => {
   imageDisplay.src = './image7.gif'; // Troca para image7.gif
-  valentineQuestion.textContent = "Ebaaaaaaaaa!!! :3"; // Altera o texto da pergunta
-  responseButtons.style.display = 'none'; // Esconde os botões
+  valentineQuestion.textContent = ""; // Limpa o texto existente
+
+  // Cria um contêiner para o texto e o link
+  const resultContainer = document.createElement('div');
+  resultContainer.style.display = "flex";
+  resultContainer.style.alignItems = "center";
+  resultContainer.style.gap = "10px"; // Espaçamento entre os itens
+  resultContainer.style.justifyContent = "center";
+  resultContainer.style.marginTop = "20px";
+
+  // Adiciona o texto "Ebaaaaa"
+  const resultText = document.createElement('span');
+  resultText.textContent = "Ebaaaaaaaaa!!! :3";
+  resultText.style.fontSize = "24px";
+  resultText.style.fontWeight = "bold";
+  resultText.style.color = "#bd1e59";
 
   // Adiciona o link para o WhatsApp
   const messageLink = document.createElement('a');
   messageLink.href = "https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs";
   messageLink.target = "_blank"; // Abre em uma nova aba
-  messageLink.innerText = "Clique aqui para me chamar no WhatsApp! rs 💬";
+  messageLink.textContent = "Clique aqui para me chamar no WhatsApp! rs 💬";
   messageLink.style.fontSize = "18px";
   messageLink.style.color = "#00BFA5";
   messageLink.style.textDecoration = "none";
-  messageLink.style.marginTop = "20px";
-  document.body.appendChild(messageLink); // Adiciona o link ao final da página
 
+  // Adiciona os elementos ao contêiner
+  resultContainer.appendChild(resultText);
+  resultContainer.appendChild(messageLink);
+
+  // Substitui o texto atual pela nova estrutura
+  valentineQuestion.replaceWith(resultContainer);
+
+  responseButtons.style.display = 'none'; // Esconde os botões
   confetti(); // Dispara a animação de confete
 });
     
