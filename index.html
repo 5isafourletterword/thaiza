@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thaiza, vamos nos ver?</title>
+  <title>Leticia, vamos nos ver?</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -33,7 +33,7 @@
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
-      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Oie, Thaiza, estou com saudades, vamos nos ver?!</h2>
+      <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Oie, Leticia, estou com saudades, vamos nos ver?!</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
@@ -46,7 +46,7 @@
       </div>
       <div id="finalMessage" class="hidden flex flex-col items-center text-center mt-6">
         <h2 class="text-4xl font-bold italic text-[#bd1e59] my-4">Ebaaaaaaaaa!!! :3</h2>
-        <a href="https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs" 
+        <a href="https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs"
            target="_blank"
            class="text-lg font-medium text-[#00BFA5] underline mt-2">
           Chama no whats! rs 💬
@@ -63,7 +63,7 @@
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
     const finalMessage = document.getElementById('finalMessage');
-  
+
     let noClickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
@@ -94,11 +94,11 @@
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`;
         if (noClickCount < 6) {
-          noButton.textContent = ["Não", "Tem certeza?", "Thaiza, fala sério!", "Pense bem rs!", "Saudades?!", "Plz, clica no sim? rs"][noClickCount];
+          noButton.textContent = ["Não", "Tem certeza?", "Leticia, fala sério!", "Pense bem rs!", "Saudades?!", "Plz, clica no sim? rs"][noClickCount];
         }
       }
     });
-  
+
     yesButton.addEventListener('click', () => {
       if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
       imageDisplay.src = './image7.gif';
@@ -109,6 +109,6 @@
       confetti(); // Dispara a animação de confete
     });
 
-  </script>  
+  </script>
 </body>
 </html>
