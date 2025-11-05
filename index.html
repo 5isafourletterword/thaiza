@@ -46,10 +46,10 @@
       </div>
       <div id="finalMessage" class="hidden flex flex-col items-center text-center mt-6">
         <h2 class="text-4xl font-bold italic text-[#bd1e59] my-4">Ebaaaaaaaaa!!! :3</h2>
-        <a href="https://wa.me/41992251509/?text=Oie,%20sim,%20vamos%20nos%20ver%20AGORA!%20rs"
+        <a href="https://wa.me/41992251509/?text=Estou%20com%20saudades,%20quero%20te%20ver%20AGORA%20%E2%9D%A4%EF%B8%8F%E2%9D%A4%EF%B8%8F%E2%9D%A4%EF%B8%8F"
            target="_blank"
            class="text-lg font-medium text-[#00BFA5] underline mt-2">
-          Chama no whats! rs 💬
+          Mandar mensagem no whats pro seu amorzinho....
         </a>
       </div>
     </div>
@@ -65,6 +65,7 @@
     const finalMessage = document.getElementById('finalMessage');
 
     let noClickCount = 0;
+    let yesMoveCount = 0;
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
@@ -99,13 +100,6 @@
       }
     });
 
-    noButton.addEventListener('mouseover', function() {
-      noButton.style.position = 'absolute';
-      const newX = Math.random() * (window.innerWidth - noButton.clientWidth);
-      const newY = Math.random() * (window.innerHeight - noButton.clientHeight);
-      noButton.style.left = `${newX}px`;
-      noButton.style.top = `${newY}px`;
-    });
 
     yesButton.addEventListener('click', () => {
       if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
@@ -115,6 +109,17 @@
       finalMessage.classList.remove('hidden');
 
       confetti(); // Dispara a animação de confete
+    });
+
+    yesButton.addEventListener('mouseover', function() {
+      if (yesMoveCount < 3) {
+        yesMoveCount++;
+        yesButton.style.position = 'absolute';
+        const newX = Math.random() * (window.innerWidth - yesButton.clientWidth);
+        const newY = Math.random() * (window.innerHeight - yesButton.clientHeight);
+        yesButton.style.left = `${newX}px`;
+        yesButton.style.top = `${newY}px`;
+      }
     });
 
   </script>
