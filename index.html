@@ -99,6 +99,14 @@
       }
     });
 
+    noButton.addEventListener('mouseover', function() {
+      noButton.style.position = 'absolute';
+      const newX = Math.random() * (window.innerWidth - noButton.clientWidth);
+      const newY = Math.random() * (window.innerHeight - noButton.clientHeight);
+      noButton.style.left = `${newX}px`;
+      noButton.style.top = `${newY}px`;
+    });
+
     yesButton.addEventListener('click', () => {
       if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
       imageDisplay.src = './image7.gif';
