@@ -82,9 +82,13 @@
     const audio = new Audio('./como-un-sueno.m4a'); // Caminho para o arquivo de música
     audio.loop = true; // Faz a música tocar em loop
     audio.volume = 0.5; // Define o volume
+    let audioStarted = false;
 
     noButton.addEventListener('click', function() {
-      if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
+      if (!audioStarted) {
+        audio.play().catch(console.error); // Toca a música ao clicar
+        audioStarted = true;
+      }
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
@@ -102,7 +106,10 @@
 
 
     yesButton.addEventListener('click', () => {
-      if (!audio.playing) audio.play().catch(console.error); // Toca a música ao clicar
+      if (!audioStarted) {
+        audio.play().catch(console.error); // Toca a música ao clicar
+        audioStarted = true;
+      }
       imageDisplay.src = './image7.gif';
       valentineQuestion.style.display = 'none';
       responseButtons.style.display = 'none';
