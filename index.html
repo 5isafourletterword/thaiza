@@ -89,17 +89,18 @@
         audio.play().catch(console.error); // Toca a música ao clicar
         audioStarted = true;
       }
-      if (noClickCount < 5) {
+      if (noClickCount < 10) {
         noClickCount++;
-        imageDisplay.src = imagePaths[noClickCount];
+        imageDisplay.src = imagePaths[noClickCount % imagePaths.length];
         buttonHeight += 8;
         buttonWidth += 8;
         fontSize += 6;
         yesButton.style.height = `${buttonHeight}px`;
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`;
-        if (noClickCount < 6) {
-          noButton.textContent = ["Não", "Tem certeza?", "Leticia, fala sério!", "Pense bem rs!", "Saudades?!", "Plz, clica no sim? rs"][noClickCount];
+        const phrases = ["Não", "Tem certeza?", "Leticia, fala sério!", "Pense bem rs!", "Saudades?!", "Plz, clica no sim? rs", "Última chance...", "É sério?", "Tá bom, parei.", "Mentira, clica de novo."];
+        if (noClickCount < phrases.length) {
+          noButton.textContent = phrases[noClickCount];
         }
       }
     });
